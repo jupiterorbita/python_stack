@@ -1,0 +1,18 @@
+min+rand*max\
+#http://learn.codingdojo.com/m/72/5471/35335
+# class user
+
+class animal:
+    def __init__(self,name='animal',health=100):
+        self.name = name
+        self.health = health
+    def walk(self):
+        self.health -= 1
+
+    def run(self):
+        self.health -= 5
+
+    def displayhealth(self):
+        print(self.health)
+        
+instance_animal = animal().walk().walk().walk().run().run()

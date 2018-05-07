@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ninja gold redo</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style_sheet.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="head">
+            <h4>your TOTAL gold is = </h4> {{ session['total_gold'] }}
+        </div>
+        <div class="houses">
+            <div class="farm">
+                <h4>farm</h4>
+                <p>earns 5-10g</p>
+                <form action="/process" method='post'>
+                <input type="hidden" name='building' value='farm'/>
+                <button type='submit'>find Gold</button>
+                </form>
+            </div>
+            <div class="casino">
+                <h4>casino</h4>
+                <p>-50 to +50 g</p>
+                <form action="/process" method='post'>
+                <input type='hidden' name='building' value='casino'/>
+                <button type="submit">find Gold</button>
+                </form>
+            </div>
+
+            <div class="activities">
+                activities go here<br>
+                {{ session['msg'] | safe }}
+            </div>
+
+            <a href="/reset"><button><<- RESET ->></button></a>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

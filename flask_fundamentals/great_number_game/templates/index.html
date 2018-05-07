@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Great Number Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <script typecopy="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+
+<body>
+    <h1>Welcome to the Great Number Game
+        <h3> I'm thinking of a number between 1 and 100...</h3>
+        <p> take a guess...</p>
+    </h1>
+ 
+    {% if session['valueshow'] is not undefined: %}
+    <div class="{{ session['box'] }}">
+        <h3 class='insidebox'> {{ session['valueshow'] }} </h3>
+    </div>
+    {% endif %}
+    <div class="submitbox">
+        <form action='/submitted' method="POST">
+            <p>
+                <input type='text' name='textinput'>
+            </p>
+            <input type='submit'>
+        </form>
+
+        <!-- <form action="/reset">
+            <input type='submit' value='RESET'>
+        </form> -->
+        <a href="/reset">reset</a>
+        <p>magic num = {{ numHTML }}</p>
+    </div>
+</body>
+
+</html>

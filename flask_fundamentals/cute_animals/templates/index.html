@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cute Animals</title>
+    <link rel='stylesheet' type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <script typecopy="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h1> Cute Animals</h1>
+        <div class="animalpics">
+            {% for i in range(1, numhtml+1): %}
+            <img src="{{ url_for('static', filename='images/')}}{{i}}.jpg" alt=''>
+            {% endfor %}
+            
+        </div>
+    </div>
+    
+</body>
+</html>

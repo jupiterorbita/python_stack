@@ -1,0 +1,40 @@
+*{
+    border: 1px dotted red;
+    padding: 5px;
+}
+h4{
+    display: inline-block;
+}
+div.head{
+    background-color: lightgoldenrodyellow;
+}
+
+div.houses{
+    background-color: azure;
+}
+    div.farm{
+        height: 200px;
+        width: 200px;
+        background-color: beige;
+        display: inline-block;
+        vertical-align: top;
+    }
+    div.casino{
+        height: 200px;
+        width: 200px;
+        background-color: beige;
+        display: inline-block;
+        vertical-align: top;
+    }
+    div.activities{
+        background-color: gainsboro;
+        height: 200px;
+        overflow-y: scroll;
+    }
+
+    p.green{
+        color: green;
+    }
+    p.red{
+        color: red;
+    }

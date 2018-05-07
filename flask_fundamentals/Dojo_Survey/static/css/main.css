@@ -1,0 +1,19 @@
+/* style for dojo survey */
+*{
+    /* outline: 2px dotted red; */
+}
+
+div.wrapper{
+    margin-left: 50px;
+}
+h1{
+    background-color: indigo;
+    color: white;
+    width: 400px;
+    margin-left: 200px;
+}
+div.formcontainer{
+    background-color: lightcyan;
+    width: 400px;
+    margin-left: 200px;    
+}

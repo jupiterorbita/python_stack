@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>playground</title>
+        <style>
+        *{
+            /* border: 1px dotted red; */
+        }
+        div.wrapper{
+            width: 1000px;
+            min-height: 600px;
+            background-color: lightgray;
+        }
+        div.box{
+            width:100px;
+            height: 100px;
+            display: inline-block;
+            background-color: {{colorhtml}};
+            margin: 20px;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <h2>PLAYGROUD</h2>
+        <div class="wrapper">
+
+            {% for i in range(0, xhtml ): %}
+                <div class="box"></div>
+            {% endfor %}
+
+        </div>
+    </body>
+</html>

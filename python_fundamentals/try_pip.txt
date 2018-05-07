@@ -1,0 +1,47 @@
+pip install Django==1.11.9
+	downloads and installs Django
+
+pip list
+	List installed packages, including editables.
+Package    Version
+---------- -------
+Django     1.11.9 
+pip        10.0.1 
+pytz       2018.4 
+setuptools 39.1.0 
+wheel      0.31.0 
+
+deactivate
+	deactivates the current virt env and takes you back to the original terminal shell
+
+pip3 list
+	lists the python3 packages
+vs 
+pip list
+	lists all python packages - a very long list
+
+source myEnvironments/py3Env/bin/activate
+	reactivated the created virt environment
+
+pip install Django==1.11.9
+	requirement already satisfied...
+
+pip freeze
+	Django==1.11.9
+	pytz==2018.4
+	--> freeze = Output installed packages in 			     requirements format.
+	--> list   =  List installed packages.
+
+pip freeze > requirements.txt
+	it creates a txt file and puts in the actual text for the packages that are required so you dont have to copy paste.
+
+pip uninstall Django
+	asks to uninstall django
+pip show Django
+	shows info about django if its installed if not,
+	it doesnt show anything.
+
+pip search Flask
+	it gives a list of flask extensions?
+
+

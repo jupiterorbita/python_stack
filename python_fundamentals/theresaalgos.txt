@@ -1,0 +1,109 @@
+
+// FizzBuzz
+function fizzBuzz (n){
+  for(var i=1; i<=n; i++){
+    if (i % 5 === 0 && i % 3 === 0){
+      continue;
+    } else if (i % 5 === 0){
+       console.log('Buzz');
+    } else if (i % 3 === 0){
+      console.log('Fizz');
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+// InsertAt (Sid's solution)
+function insertAt(arr, idx, n) {
+    if (idx > arr.length) {
+        arr.length = idx - 1;
+        arr[idx] = n;
+        console.log(arr);
+    } else if (idx < 0) {
+        console.log(arr);
+    } else if (idx < arr.length) {
+        arr.length += 1;
+        for (var i = arr.length - 1; i > idx; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[idx] = n;
+        console.log(arr);
+    }
+}
+
+// ********* Problems from Algorithm Book ********* 
+
+function fourMil (){
+  var sum = 0;
+  for (var i=1; i<=30; i++){
+    if (i % 15 !== 0){
+      if (i % 3 === 0 || i % 5 === 0){
+          sum+=i;
+          console.log(i);
+      }
+    }
+  }
+}
+
+// Coin Change pg29
+function coinChange (cents){
+  var quarters = 0;
+  var dimes = 0;
+  var nickels = 0; 
+  var pennies = 0; 
+  var change= cents % 25;
+  
+  quarters = Math.floor(cents/25);
+  dimes = Math.floor(change/10);
+  change = change % 10;
+  nickels = Math.floor(change/5);
+  pennies = change % 5;
+  console.log(quarters, dimes, nickels, pennies);
+}
+
+// Remove At pg38
+function removeAt (arr, idx){
+  var num = arr[idx];
+  for (var i = idx; i < arr.length; i++){
+    arr[i] = arr[i+1];
+  }
+  arr.pop();
+  return arr, num;
+}
+
+// Given 2 arrays, return an object. 
+function objMaker(arr1, arr2){
+  var obj = {};
+  for (var i=0; i<arr1.length; i++){
+    obj[arr1[i]] = arr2[i];
+  }
+  return obj;
+}
+
+// Braces Valid pg 52
+var bracesDict ={
+  '}': "{", 
+  ')': "(",
+  ']':"["
+  }
+function parenValid(str){
+    var arr = [];
+    for(var i =0;i<str.length;i++){
+      if(str[i]==='{'||str[i]==='['||str[i]==='('){ // pushes open brackets
+        arr.push(str[i]);
+        // console.log(arr);
+      } if (bracesDict[str[i]] == arr[arr.length-1])
+        arr.pop();
+        console.log(arr);
+    }
+  if(arr.length === 0){
+  return true;
+ } else {
+   return false
+ }
+}
+
+ }
+
+}

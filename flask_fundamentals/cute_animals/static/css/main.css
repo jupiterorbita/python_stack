@@ -1,0 +1,9 @@
+/* css for cute animals */
+
+*{
+    border: dotted 1px red;
+}
+
+img{
+    width: 170px;
+}

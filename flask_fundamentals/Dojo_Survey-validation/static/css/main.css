@@ -1,0 +1,50 @@
+/* style for dojo survey */
+*{
+    /* outline: 2px dotted red; */
+}
+body{
+    background-image: url('../images/maxresdefault.jpg');
+    background-repeat: no-repeat;
+    /* background-image: linear-gradient(red, yellow); */
+    /* opacity: 0.5; */
+}
+table, tr, td{
+    border: 1px solid black;
+}
+p.red{
+    color: red;
+}
+
+div.wrapper{
+    margin-left: 50px;
+    padding-top: 10px;
+}
+h1{
+    background-color: indigo;
+    background-image: linear-gradient(red, rgb(255, 162, 0));
+    color: white;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+div.formcontainer{
+    margin-top: 40px;
+    background-color: lightcyan;
+    margin: 0 auto;
+    width: 400px;
+    opacity: .9;
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    /* display: inline-block; */
+
+}
+h6{
+    margin-top: 10px;
+}
+textarea{
+    width: 330px;
+    height: 100px;;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML-table</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border: 2px solid black;
+            text-align: center;
+        }
+        tr, td, th {
+            /* width: 100%; */
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>HTML-table</h1>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Full name</th>
+                <th>Full Name in UPPER CASE</th>
+            </tr>
+            <tr>
+         
+           {% for userC in usersHtml: %}
+           <tr>
+                <td> {{ userC['first_name'] }} </td>
+                <td> {{ userC['last_name'] }} </td>
+                <td> {{ userC['first_name'] }} {{userC['last_name']}} </td>
+                <td> {{ userC['first_name'].upper() }} {{userC['last_name'].upper()}} </td>
+            </tr>
+            {% endfor %}
+            </tr>
+        </table>
+
+    </div>
+</body>
+
+</html>

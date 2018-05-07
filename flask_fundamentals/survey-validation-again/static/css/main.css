@@ -1,0 +1,52 @@
+/* main css for survery validation redo */
+*{
+    /* outline: 1px dotted red; */
+    font-size: 16pt;
+}
+
+table{
+    /* border: 1px solid blue; */
+    color: white;
+}
+
+div.wrapper:before{
+    /* content: "";
+    background-image: url(../images/bg.jpg);
+    filter: blur(1.5rem);
+    z-index: -1; */
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    
+    display: block;
+    background-image: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_527bf56961712_1.JPG');
+    width: 1200px;
+    height: 800px;
+    
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(7px);
+    -o-filter: blur(7px);
+    -ms-filter: blur(7px);
+    filter: blur(15px);
+}
+div.wrapper{
+    margin-top: 40px;
+    z-index: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+div.container{
+    background-color: rgb(107, 121, 117);
+    /* opacity: .7 */
+}
+
+textarea{
+    width: 400px;
+    height: 100px;
+}
