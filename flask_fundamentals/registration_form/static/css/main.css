@@ -1,0 +1,7 @@
+*{
+    outline: 1px dotted red;
+}
+button{
+    width: 100px;
+    height: 30px;
+}
