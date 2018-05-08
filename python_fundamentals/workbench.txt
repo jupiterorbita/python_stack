@@ -1,0 +1,10 @@
+USE TWITTER
+
+INSERT INTO tweets(tweet, user_id, created_at, updated_at) 
+VALUES ('this is a test tweet', 1, now(), now());
+
+SELECT *  FROM tweets
+
+UPDATE tweets SET tweet = 'this tweet is now updated/replaced', user_id = 2 WHERE id=1
+
+DELETE FROM tweets WHERE id=16
