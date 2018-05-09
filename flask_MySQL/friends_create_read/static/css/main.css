@@ -1,0 +1,40 @@
+*{
+    /* outline: 2px dotted  red; */
+}
+
+div.friends{
+    background-color: beige;
+    padding-left: 20px;
+    display:inline-block;
+    vertical-align: top;
+    width: 650px;
+    height: 300px;
+}
+
+div.addfriend{
+    background-color: bisque;
+    padding-left: 20px;
+    display:inline-block;
+    vertical-align: top;
+    width: 300px;
+    height: 300px;
+}
+
+div.friendview{
+    border-style: groove;
+    overflow-y: scroll;
+    display:inline-block;
+    vertical-align: top;
+    width: 600px;
+    height: 200px;
+    background-color: antiquewhite
+}
+
+button{
+    margin-top: 10px;
+    width: 120px;
+}
+
+table.showf{
+    border: 1px solid black;
+}

@@ -1,0 +1,10 @@
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'localhost:5000' ([Errno 8] nodename nor servname provided, or not known)")
+
+fix:
+change and put ONLY localhost not :5000
+
+Something went wrong name 'query' is not defined
+fix: 
+while we use query,
+def query_db(self, query, data=None):
+
