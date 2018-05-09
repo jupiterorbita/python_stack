@@ -25,8 +25,8 @@ WHERE store.store_id = 1 AND address.city_id =42 OR address.city_id=312 OR addre
 
 5. 
 SELECT film.film_id, film.title, film_actor.actor_id, film.description, film.rating, film.release_year, film.special_features FROM film
-LEFT JOIN film_actor ON film.film_id = film_actor.film_id
-WHERE film.rating='G' AND film.special_features='behind the scenes'
+JOIN film_actor ON film.film_id = film_actor.film_id
+WHERE film.rating='G' AND film.special_features LIKE '%behind the scenes%'
 
 
 6. 
@@ -34,3 +34,17 @@ SELECT film.film_id, film.title, actor.actor_id, CONCAT(actor.first_name,'  ', a
 JOIN film_actor ON film.film_id = film_actor.film_id
 JOIN actor ON film_actor.actor_id = actor.actor_id
 WHERE film.film_id=369
+
+7.
+SELECT film.film_id, film.title, film.description, film.release_year, film.rating, film.special_features, film.rental_rate, category.name FROM film
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON film_category.category_id = category.category_id
+WHERE category.name = 'Drama' AND film.rental_rate = 2.99
+
+8.
+SELECT actor.actor_id, CONCAT(actor.first_name,' ',actor.last_name) AS actor_name, film.film_id, film.title, film.description, film.release_year, film.rating, film.special_features, category.name FROM film
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON film_category.category_id = category.category_id
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON film_actor.actor_id = actor.actor_id
+WHERE actor.first_name = 'Sandra' AND actor.last_name = 'Kilmer' AND category.name='action'

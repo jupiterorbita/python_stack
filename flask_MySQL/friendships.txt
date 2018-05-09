@@ -1,0 +1,49 @@
+friendships
+
+1. 
+SELECT users.first_name, users.last_name, friendships.friend_2_id, users2.first_name AS friend_fname, users2.last_name AS friend_lname
+FROM users
+LEFT JOIN friendships ON users.id = friendships.friend_1_id
+LEFT JOIN users AS users2 ON friendships.friend_2_id = users2.id
+WHERE users.first_name = 'Kermit' OR users2.first_name='Kermit'
+
+ALT
+SELECT users.first_name, users.last_name, users2.first_name AS friend_fname, users2.last_name AS friend_lname FROM users
+LEFT JOIN friendships ON users.id = friendships.friend_1_id
+LEFT JOIN users as users2 ON users2.id = friendships.friend_2_id
+
+2.
+SELECT COUNT(friendships.friend_1_id), COUNT(friendships.friend_2_id)
+FROM friendships
+
+3. just look at the table
+SELECT users.id, users.first_name, users.last_name, users2.first_name AS friend_fname, users2.last_name AS friend_lname FROM users
+LEFT JOIN friendships ON users.id = friendships.friend_1_id
+LEFT JOIN users as users2 ON users2.id = friendships.friend_2_id
+
+4. 
+INSERT INTO users(first_name,last_name)
+VALUES('John','SMITH');
+
+INSERT INTO Friendships(friend_1_id, friend_2_id,created_at)
+VALUES('99','2', NOW())
+
+INSERT INTO Friendships(friend_1_id, friend_2_id,created_at)
+VALUES('99’,’4’, NOW())
+
+INSERT INTO Friendships(friend_1_id, friend_2_id,created_at)
+VALUES('99’,’5’, NOW())
+
+
+(ELI id= 2
+Kermit id= 4
+Marky id= 5)
+
+5. 
+SELECT * FROM users
+LEFT JOIN friendships ON users.id = friendships.friend_1_id
+LEFT JOIN users as users2 ON users2.id = friendships.friend_2_id
+WHERE users.first_name = 'Eli'  
+ORDER BY friendships.friend_2_id DESC
+
+

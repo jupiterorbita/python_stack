@@ -1,0 +1,35 @@
+Lead Gen Business
+
+1.
+-- 1. What query would you run to get total revenue collected from the client with an id of 2?
+SELECT MONTHNAME(charged_datetime) AS month, SUM(amount) AS revenue FROM billing
+WHERE MONTHNAME(charged_datetime) = 'March'
+
+-- 2. What query would you run to get total revenue collected from client=2?
+SELECT client_id, SUM(amount) AS revenue FROM billing
+WHERE client_id=2
+
+-- 3.What query would you run to get all the sites that client = 10 owns?
+SELECT sites.domain_name, client_id FROM sites
+WHERE client_id=10
+
+-- 4.What query would you run to get total # of sites created each month for client=1 ? What about for client=20?
+SELECT client_id, sites.domain_name,  MONTHNAME(created_datetime), YEAR(created_datetime) FROM sites
+WHERE client_id = 1
+(( INCOMPLETE ))
+
+-- 5 What query would you run to get the total # of leads we have generated for each of our sites between January
+-- 1st 2011 to February 15th 2011?
+SELECT COUNT(leads.leads_id), sites.domain_name, DATE_FORMAT(leads.registered_datetime, "%m %Y") FROM sites
+JOIN leads ON sites.site_id = leads.site_id
+WHERE YEAR(leads.registered_datetime) = 2011 AND DATE_FORMAT(leads.registered_datetime, "%j") between 001 AND 045
+GROUP BY sites.domain_name 
+
+6
+SELECT COUNT(leads.leads_id), CONCAT(clients.first_name,' ', clients.last_name) AS clients_name, leads.registered_datetime FROM clients
+JOIN sites ON clients.client_id = sites.client_id
+JOIN leads ON sites.site_id = leads.site_id
+WHERE YEAR(leads.registered_datetime) = 2011
+GROUP BY clients_name
+
+
