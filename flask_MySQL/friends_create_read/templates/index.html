@@ -19,19 +19,25 @@
                 
                 <table class="showf">
                     <tr>
-                        <th>FIRST NAME &nbsp &nbsp </th>
+                        <!-- <th>FIRST NAME &nbsp &nbsp </th>
                         <th> LAST NAME &nbsp &nbsp </th>
-                        <th>OCCUPATION</th>
-                        <!-- <td> {{ friends }}</td> -->
+                        <th>OCCUPATION</th> -->
+
+                        {% for key in friends[0] %}
+                            <th>{{ key }} </th>
+                        {% endfor %}
                     </tr>
                     <tr>
                     {% for friend in friends %}
                     <tr>
-                        <td>{{ friend.first_name }}</td>
+                        {% for i in friend %}
+                           <td> {{ friend[i] }}</td>
+                        {% endfor %}
+                        {% endfor %}
+                        <!-- <td>{{ friend.first_name }}</td>
                         <td>{{ friend.last_name }}</td>
-                        <td>{{ friend.occupation }}</td>
+                        <td>{{ friend.occupation }}</td> -->
                     </tr>
-                    {% endfor %}
                     
 
 

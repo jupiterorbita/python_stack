@@ -1,7 +1,9 @@
 from flask import Flask, session, render_template, redirect, request, flash
+from flask_bcrypt import Bcrypt
 # import the function connectToMySQL from the file mysqlconnection.py
 from mysqlconnection import connectToMySQL
 app = Flask(__name__)
+bcrypt = Bcrypt(app)
 app.secret_key='Fg5g45wg5wgw5g45ytjuy5terytuftyt5'
 
 # connect with "friends" <-- DB

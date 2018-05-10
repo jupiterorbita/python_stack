@@ -1,0 +1,17 @@
+*{
+    /* outline: 1px dotted red; */
+    /* padding-left: 20px; */
+}
+
+input.emailcss{
+    width: 300px;
+}
+
+p.red{
+    color: red;
+}
+
+table{
+    border-style: groove;
+    margin-left: 30px;
+}

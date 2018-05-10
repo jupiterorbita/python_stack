@@ -2,15 +2,10 @@
 import pymysql.cursors
 print('\n','= = = server start = = = mysqlconnection.py ')
 
-# connect with "friends" <-- DB
-
-
-
-# Create a class that will give us an object that we can use to connect to a database
 class MySQLConnection:
     def __init__(self, db):
         connection = pymysql.connect(host = 'localhost',
-                                    user = 'root', # change the user and password as needed
+                                    user = 'root',
                                     password = 'root', 
                                     db = db,
                                     charset = 'utf8mb4',
