@@ -1,0 +1,18 @@
+/* css for login-registration */
+*{
+    /* outline: 1px dotted red; */
+}
+div.register{
+    margin-left: 20px;
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.login{
+    margin-left: 20px;
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+}
+

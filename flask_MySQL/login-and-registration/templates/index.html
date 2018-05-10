@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login-registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Login and Registration</h1>
+        <div class="register">
+            <h3>Register here</h3>
+
+            <form action="/register" method="post">
+                First Name:<br>
+                <input type="text" name='first_name'/><br>
+                Last Name:<br>
+                <input type='text' name='last_name'/><br>
+                email:<br>
+                <input type="text" name='email'/><br>
+                Password:<br>
+                <input type='password' name='password1'/><br>
+                confirm password:<br>
+                <input type='password' name='password2'/><br><br>
+                <button type="submit"> register!</button>
+            </form>
+        </div>
+
+        <div class="login">
+            <h3>Login!</h3>
+            <form action="/login" method="POST">
+                email:<br>
+                <input type='text' name='email'/><br>
+                password:<br>
+                <input type='password' name='password3'/><br><br>
+                <button type="submit">Login</button>
+
+
+
+
+            </form>
+
+        </div>
+
+
+
+
+    </div>
+</body>
+
+</html>
