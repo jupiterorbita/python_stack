@@ -16,3 +16,7 @@ div.login{
     vertical-align: top;
 }
 
+p.red{
+    color: red;
+    margin-bottom: 4px;
+}

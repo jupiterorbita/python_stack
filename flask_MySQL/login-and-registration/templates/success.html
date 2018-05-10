@@ -11,7 +11,7 @@
 </head>
 <body>
     <div.wrapper>
-        <h1>welcome < name ></h1>
+        <h1>welcome {{ session['first_name'] }} {{ session['last_name'] }}</h1>
 
         <a href="/logout"><button>logout</button></a>
 
