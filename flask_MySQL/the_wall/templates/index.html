@@ -33,7 +33,6 @@
                                 {% endif %}
                             {% endwith %}<br>
 
-
                         Last Name:<br>
                         <input type='text' name='last_name' value='{{ temp_lname }}'/><br>
                             {% with errors = get_flashed_messages(category_filter=["lname"]) %}
@@ -43,7 +42,6 @@
                                     {% endfor -%}
                                 {% endif %}
                             {% endwith %}<br>
-
 
                         email:<br>
                         <input type="text" name='email' value='{{ temp_email}}'/><br>
@@ -55,7 +53,6 @@
                                 {% endif %}
                             {% endwith %}<br>
 
-
                         Password:<br>
                         <input type='password' name='password1'/><br>
                         {% with errors = get_flashed_messages(category_filter=["pass1"]) %}
@@ -65,7 +62,6 @@
                                     {% endfor -%}
                                 {% endif %}
                             {% endwith %}<br>
-
 
                         confirm password:<br>
                         <input type='password' name='password2'/><br>
@@ -90,12 +86,9 @@
                         <input type='password' name='password3'/><br><br>
                         <button class='login_button' type="submit">Login</button>
                     </form>
-        
+
                 </div>
-
         </div>
-
     </div>
-    
 </body>
 </html>

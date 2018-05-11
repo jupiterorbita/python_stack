@@ -7,7 +7,7 @@ app = Flask(__name__)
 bcrypt = Bcrypt(app)
 app.secret_key='Fg5g45wg5wgw4545ufghfgfftyt5'
 
-mysql = connectToMySQL('wall_db')
+mysql = connectToMySQL('wall-db')
 print('\n','= = = server start = = = server.py ')
 
 @app.route('/')
