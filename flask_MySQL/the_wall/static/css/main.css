@@ -1,0 +1,54 @@
+*{
+    /* outline: 1px dotted red; */
+}
+div.header{
+    background-color: rgb(230, 246, 255);
+    height: 67px;
+}
+div.lefthead{
+    display: inline-block;
+    margin-right:500px
+}
+div.righthead{
+    display: inline-block;
+}
+.error{
+    color: red;
+}
+div.register{
+margin-left: 20px;
+width: 30%;
+display: inline-block;
+vertical-align: top;
+}
+
+div.login{
+margin-left: 20px;
+width: 30%;
+display: inline-block;
+vertical-align: top;
+}
+
+p.red{
+    color: red;
+    margin-bottom: 4px;
+}
+
+button.register_button {
+        border-radius: 8px;
+        color: white;
+        background-color: #008CBA;
+        /* margin-top: 10px; */
+        display: block;
+        /* margin-left: 50px; */
+        margin-bottom: 10px;
+    }
+button.login_button {
+    border-radius: 8px;
+    color: white;
+    background-color: #f44336;
+    /* margin-top: 10px; */
+    display: block;
+    /* margin-left: 50px; */
+    margin-bottom: 10px;
+}
