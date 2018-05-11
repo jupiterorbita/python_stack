@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Wall - COMMENTS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <style>
+        * {
+            /* outline: 1px dotted red; */
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        div.header {
+            background-color: rgb(230, 246, 255);
+        }
+
+        div.main {
+            margin-left: 30px;
+        }
+
+        div.lefthead {
+            display: inline-block;
+            margin-right: 500px
+        }
+
+        div.righthead {
+            display: inline-block;
+        }
+
+        div.register {
+            margin-left: 20px;
+            width: 30%;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        div.login {
+            margin-left: 20px;
+            width: 30%;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        p.red {
+            color: red;
+            margin-bottom: 4px;
+        }
+
+        input.comment {
+            width: 800px;
+            height: 80px;
+        }
+
+        div.topmessage {
+            margin-left: 50px;
+        }
+
+        div.message_posted_div {
+            width: 800px;
+            margin-left: 10px;
+            margin-right: 50px;
+        }
+
+        div.post_comment_div{
+            margin-left: 50px;
+        }
+        button.buttonmessage {
+            border-radius: 8px;
+            color: white;
+            background-color: #008CBA;
+            margin-top: 10px;
+            display: block;
+            margin-left: 670px;
+            margin-bottom: 10px;
+        }
+
+        button.buttoncomment {
+            border-radius: 8px;
+            color: white;
+            background-color: #4CAF50;
+            /* margin-top: 3px; */
+            display: block;
+            margin-left: 660px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="lefthead">
+
+                <h1>CodingDojo Wall</h1>
+            </div>
+
+            <div class="righthead">
+                <h5>Welcome
+                    <span class='blue'>[ name ]</span>
+                </h5>
+                <a href="/logout">log off</a>
+            </div>
+
+        </div>
+        <div class="main">
+
+            <h3>Post a message</h3>
+
+            <div class="post_message_div">
+                <form action='/wall' method='post'>
+                    <input class='comment' type="textarea" name='comment' placeholder="write something nice">
+                    <button class='buttonmessage' type="submit"> Post a message</button>
+                </form>
+            </div>
+
+            <div class="message_posted_div">
+                <h5> First Name - Last name - Date Jan23, 2018</h5>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, maxime voluptatem modi quam laborum
+                    reiciendis reprehenderit nam quibusdam perspiciatis! Iste, a. Fugit voluptatem quibusdam earum aliquid,
+                    nesciunt ea odio et?</p>
+                <button class='buttoncomment' type='submit'> Post a comment</button>
+            </div>
+            <div class="message_posted_div">
+                <h5> First Name - Last name - Date Jan23, 2018</h5>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, maxime voluptatem modi quam laborum
+                    reiciendis reprehenderit nam quibusdam perspiciatis! Iste, a. Fugit voluptatem quibusdam earum aliquid,
+                    nesciunt ea odio et?</p>
+                <button class='buttoncomment' type='submit'> Post a comment</button>
+            </div>
+
+            <div class="post_comment_div">
+                <h4>Post a Comment</h4>
+                <form action='/wall' method='post'>
+                    <input class='comment' type="textarea" name='comment' placeholder="write something nice">
+                    <button class='buttonmessage' type="submit"> Post a message</button>
+                </form>
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+</body>
+
+</html>

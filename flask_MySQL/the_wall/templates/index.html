@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Wall</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <style>
+    *{
+        /* outline: 1px dotted red; */
+    }
+    div.header{
+        background-color: rgb(230, 246, 255);
+        height: 67px;
+    }
+    div.lefthead{
+        display: inline-block;
+        margin-right:500px
+    }
+    div.righthead{
+        display: inline-block;
+    }
+    .error{
+        color: red;
+    }
+    div.register{
+    margin-left: 20px;
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    }
+
+    div.login{
+    margin-left: 20px;
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    }
+
+    p.red{
+        color: red;
+        margin-bottom: 4px;
+    }
+
+    button.register_button {
+            border-radius: 8px;
+            color: white;
+            background-color: #008CBA;
+            /* margin-top: 10px; */
+            display: block;
+            /* margin-left: 50px; */
+            margin-bottom: 10px;
+        }
+    button.login_button {
+        border-radius: 8px;
+        color: white;
+        background-color: #f44336;
+        /* margin-top: 10px; */
+        display: block;
+        /* margin-left: 50px; */
+        margin-bottom: 10px;
+    }
+
+
+    </style>
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="lefthead">
+
+                <h1>CodingDojo Wall</h1>
+            </div>
+
+
+
+        </div>
+        <div class="main">
+
+
+                <h2>Login and Registration</h2>
+                <div class="register">
+                    <h3>Register here</h3>
+                 
+        
+                    <form action="/register" method="post">
+
+
+                        First Name:<br>
+                        <input type="text" name='first_name' value='{{ temp_fname }}'/><br>
+                            {% with errors = get_flashed_messages(category_filter=["fname"]) %}
+                                {% if errors %}
+                                    {%- for msg in errors %}
+                                    <span class="error">{{ msg }}</span><br>
+                                    {% endfor -%}
+                                {% endif %}
+                            {% endwith %}<br>
+
+
+                        Last Name:<br>
+                        <input type='text' name='last_name' value='{{ temp_lname }}'/><br>
+                            {% with errors = get_flashed_messages(category_filter=["lname"]) %}
+                                {% if errors %}
+                                    {%- for msg in errors %}
+                                    <span class="error">{{ msg }}</span><br>
+                                    {% endfor -%}
+                                {% endif %}
+                            {% endwith %}<br>
+
+
+                        email:<br>
+                        <input type="text" name='email' value='{{ temp_email}}'/><br>
+                        {% with errors = get_flashed_messages(category_filter=["email"]) %}
+                                {% if errors %}
+                                    {%- for msg in errors %}
+                                    <span class="error">{{ msg }}</span>
+                                    {% endfor -%}
+                                {% endif %}
+                            {% endwith %}<br>
+
+
+                        Password:<br>
+                        <input type='password' name='password1'/><br>
+                        {% with errors = get_flashed_messages(category_filter=["pass1"]) %}
+                                {% if errors %}
+                                    {%- for msg in errors %}
+                                    <span class="error">{{ msg }}</span>
+                                    {% endfor -%}
+                                {% endif %}
+                            {% endwith %}<br>
+
+
+                        confirm password:<br>
+                        <input type='password' name='password2'/><br>
+                        {% with errors = get_flashed_messages(category_filter=["pass2"]) %}
+                                {% if errors %}
+                                    {%- for msg in errors %}
+                                    <span class="error">{{ msg }}</span>
+                                    {% endfor -%}
+                                {% endif %}
+                            {% endwith %}<br>
+                            <br>
+                        <button class='register_button' type="submit"> register!</button>
+                    </form>
+                </div>
+        
+        
+                
+                <div class="login">
+                    <h3>Login!</h3>
+                    <form action="/login" method="POST">
+                        email:<br>
+                        <input type='text' name='email'/><br>
+                        password:<br>
+                        <input type='password' name='password3'/><br><br>
+                        <button class='login_button' type="submit">Login</button>
+                    </form>
+        
+                </div>
+        
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+</body>
+</html>

@@ -5,9 +5,9 @@ from mysqlconnection import connectToMySQL
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
-app.secret_key='Fg5g45wg5wgw5g4656rf5ytjuy5terytu88u8ufghfgfftyt5'
+app.secret_key='Fg5g45wg5wgw4545ufghfgfftyt5'
 
-mysql = connectToMySQL('login_registration_db')
+mysql = connectToMySQL('wall_db')
 print('\n','= = = server start = = = server.py ')
 
 @app.route('/')
@@ -25,53 +25,48 @@ def index():
     # pass vars to browser to remember values
     return render_template('index.html', temp_fname=session['first_name'], temp_lname=session['last_name'], temp_email=session['email'])
 
-@app.route('/register', methods=['POST'])
+@app.route('/register', methods=['post'])
 def register():
-    print('\n= = = = GOT POST INFO = = = = ')
-    print(request.form)
-    print('= = = = END OF POST INFO = = = =')
-    
+    print('\n','----------- inside /register')
 
-    # ========== validation checks ===========
-    # flag set
-    validationError = False
-    passValidationError = False
+    errorValidation = False
 
-    # --------------- FIRST NAME validation
+    # -------------- FIRST NAME
     if request.form['first_name'] == '':
-        print('@@@@@@@ FIRST is empty ----')
-        flash('First name cannot be empty!')
-        validationError = True
+        print('@@@@@@ First name is empty')
+        flash('first name cannot be empty', 'fname')
+        errorValidation = True
     if len(request.form['first_name']) < 2:
-        print('@@@@@@@ FIRST is less than 2 chars ---') 
-        flash('First name must be more than 2 letters!')
-        validationError = True
+        print('@@@@@@@@@ first name is LESS than 2 char') 
+        flash('First name must have AT LEAST 2 letters', 'fname')
+        errorValidation = True
     if request.form['first_name'].isalpha() == False:
-        print('@@@@@@@ FIRST is not a string -----') 
-        flash('First name must contain ONLY LETTERS')
-        validationError = True
+        print('@@@@@@@@@@ first name is not a string')
+        flash('First name must contain ONLY letters', 'fname')
+        errorValidation = True
 
-    # --------------- LAST NAME validation
+    # ------------ LAST NAME
     if request.form['last_name'] == '':
-        print('@@@@@@@ LAST name is empty ----')
-        flash('Last name cannot be empty!')
-        validationError = True
+        print('@@@@@@ LAST name is empty')
+        flash('Last name cannot be empty', 'lname')
+        errorValidation = True
     if len(request.form['last_name']) < 2:
-        print('@@@@@@@ LAST name is less than 2 chars ---') 
-        flash('Last name must be more than 2 letters!')
-        validationError = True
+        print('@@@@@@@@@ LAST name is LESS than 2 char') 
+        flash('Last name must have AT LEAST 2 letters', 'lname')
+        errorValidation = True
     if request.form['last_name'].isalpha() == False:
-        print('@@@@@@@ LAST is not a string -----') 
-        flash('Last name must contain ONLY LETTERS')
-        validationError = True
+        print('@@@@@@@@@@ LAST name is not a string')
+        flash('Last name must contain ONLY letters', 'lname')
+        errorValidation = True
 
-    # ---------------- EMAIL validation
+    #-------------- EMAIL
     if len(request.form['email']) < 1:
-        flash('email cannot be blank!')
+        flash('email cannot be blank!', 'email')
         validationError = True
     elif not EMAIL_REGEX.match(request.form['email']):
-        flash('invalid email address!')
+        flash('invalid email address!', 'email')
         validationError = True
+
     # ========= check what email we are getting
     query_email = "SELECT email FROM users WHERE email='{}';".format(request.form['email'])
     print(query_email)
@@ -109,10 +104,11 @@ def register():
     # never render on a post, always redirect!
 
     # ====== retain sessions for FIRST, LAST, EMAIL in case of error
+
+
     session['first_name'] = request.form['first_name']
     session['last_name'] = request.form['last_name']
     session['email'] = request.form['email']
-
 
     # =-=-=-=-=-=- FINAL VALIDATION =-=-=---=-=-=-=
     if validationError == False:
@@ -128,12 +124,13 @@ def register():
             mysql.query_db(query, data)
             print('@@@@@@@@@@@@@ passed all validations @@@@')
         return redirect('/success')
-    
+
     return redirect('/')
+    
 
-
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['post'])
 def login():
+    print('\n','----------- inside /login')
     query = "SELECT * FROM users WHERE email = %(email)s;"
     data = { "email" : request.form["email"] }
     result = mysql.query_db(query, data)
@@ -155,17 +152,15 @@ def login():
             return redirect('/success')
         flash("You could not be logged in")
         return redirect("/")
-
-
-@app.route('/success')
-def success():
-    return render_template('success.html')
+@app.route('/wall')
+def wall():
+    print('\n', '---------- inside /wall')
+    return redirect('/')
 
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect('/')
-
 
 if __name__ == "__main__":
     app.run(debug=True)
