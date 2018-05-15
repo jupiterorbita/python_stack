@@ -1,0 +1,20 @@
+/* css for random_word */
+*{
+    /* outline: 1px dotted red; */
+    margin: 0 auto;
+    text-align: center;
+}
+.word{
+    width: 500px;
+    height: 150px;
+    background-color: azure;
+    display: block;
+    vertical-align: top;
+}
+h3{
+    padding-top: 59px;
+}
+button{
+    margin-top: 30px;
+    /* display: block; */
+}

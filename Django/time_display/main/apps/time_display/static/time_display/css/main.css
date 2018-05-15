@@ -1,0 +1,27 @@
+/* CSS for time_display */
+*{
+    /* outline: 1px dotted red; */
+}
+h1{
+    text-align: center;
+    /* color: aliceblue; */
+}
+div.header{
+    background-color: rgb(26, 117, 117);
+    color: aliceblue;
+}
+div.t{
+    margin: 0 auto;
+    width: 300px;
+    text-align: center;
+    border: 2px solid;
+    margin-bottom: 20px;
+}
+div.time{
+    /* margin-top: 20px; */
+    margin: 0 auto;
+    width: 500px;
+    height: 300px;
+    text-align: center;
+    border: 3px solid;
+}
