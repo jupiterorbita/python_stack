@@ -1,0 +1,31 @@
+*{
+    /* outline: 1px dotted red; */
+    padding: 3px;
+}
+div.left{
+    background-color: aliceblue;
+    height: 400px;
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
+div.right{
+    background-color: beige;
+    border-left: 2px;
+    height: 400px;
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
+.blue{
+    color: blue;
+}
+.big{
+    font-size: 20pt;
+}
