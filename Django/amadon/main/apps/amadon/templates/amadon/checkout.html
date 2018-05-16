@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amadon checkout</title>
+    <link rel="stylesheet" href="{% static 'amadon/css/main.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Thank you for your business!</h1>
+        <p>we charged your credit card with {{ request.session.current }}</p>
+        <p>
+            you have ordered {{request.session.items}} items so far and spent {{request.session.total}} on Amadon!
+        </p>
+        <p><a href='/clear'><button>Clear cart</button></a></p>
+        <p><a href='/'><button>go back</button></a></p>
+    </div>
+    
+</body>
+</html>

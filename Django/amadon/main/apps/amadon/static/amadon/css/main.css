@@ -1,0 +1,8 @@
+tr, td, th, table{
+    border: 1px dotted black;
+    border-radius: 1px;
+    padding: 5px;
+}
+th, td{
+    min-width: 100px;
+}
