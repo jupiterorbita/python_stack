@@ -50,7 +50,7 @@ def process_money(request):
             msg = "you got "+str(casino_gold)+" gold from casino -- "+time+", "+date
 
         msg_list = request.session['msg']
-        msg_list.insert(0,{
+        msg_list.insert(0 ,{
             'msgs': msg
         })
         request.session['msg'] = msg_list

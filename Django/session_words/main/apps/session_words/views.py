@@ -22,13 +22,13 @@ def process(request):
     }
     request.session['datetime'] = datetime
 
-    #text
+    # color
     if 'color' in request.POST:
         request.session['color'] = request.POST['color']
     else: 
         request.session['color'] = 'black'
        
-    #is big check
+    # is big check
     if 'isbig' not in request.POST:
         request.session['isbig'] = 12
     else:
