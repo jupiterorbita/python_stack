@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book_authors</title>
+</head>
+<body>
+    <h1>Book - Authors</h1>
+    <p> {{ this_author.books.all }} </p>
+    <br>
+    <hr>
+            <h1>Author List</h1>
+        <ul>
+        {% for author in authors %}
+            <li>{{author.first_name}}
+            <ul>
+                {% for book in author.books.all %}
+                <li><em>{{book.name}}</em></li>
+                {% endfor %}
+            </ul>
+            </li>
+        {% endfor %}
+        </ul>
+</body>
+</html>
