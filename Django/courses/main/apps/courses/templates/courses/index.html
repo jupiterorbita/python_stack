@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Courses</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <style>
+        div.course {
+            min-height: 200px;
+            width: 80%;
+            background-color: aliceblue;
+        }
+        div.table {
+            width: 80%;
+            min-height: 200px;
+            background-color: whitesmoke;
+        }
+        .messages{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>courseMaster</h1>
+        </div>
+        <hr>
+        <div class="course">
+            <h3>delete a course:</h3>
+
+                {% if messages %}
+                {% for message in messages %}
+                    <ul class="messages">
+                        <li>{{ message }}</li>
+                    </ul>
+                {% endfor %}
+                {% endif %}
+
+            <form action='/courses/add' method='post'>
+                {% csrf_token %}
+                name: <input type="text" name='name'/><br>
+                Description <textarea type="text" name='desc'></textarea><br>
+                <input type="submit" value='ADD'>
+            </form>
+
+        </div>
+        <div class="table">
+            <h4>Courses:</h4>
+            <table style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Courses name</th>
+                        <th>Description</th>
+                        <th>date added</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in courses %}
+                    <tr>
+                        <td>{{i.name}}</td>
+                        <td>{{i.desc}}</td>
+                        <td>{{i.created_at}}</td>
+                        <td><a href='/courses/delete/{{i.id}}'>DELETE</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

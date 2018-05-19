@@ -42,11 +42,11 @@ def update(request):
 
         else:
             u = User.objects.get(id=id)
-            u.fist_name = request.POST['first_name']
+            u.first_name = request.POST['first_name']
             u.last_name = request.POST['last_name']
             u.email = request.POST['email']
             u.save()
-        return redirect('/')
+            return redirect('/')
 
 
 
