@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Semi-RESTful Users</title>
+    <link rel="stylesheet" href="{% static 'semirestfulusers/css/main.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+    <h1>semi RESTful Users</h1>
+    <hr>
+    <table class="talbe" style="width:100%">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <!-- LOOP DB table!!! for bolg in blogs -->
+        <!-- blog.id    blog.name -->
+        {% for i in users %}
+        <tbody>
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.first_name }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.created_at }}</td>
+                <td><a href=/users/{{i.id}}>Show</a> | <a href='/users/{{i.id}}/edit'>Edit</a> | <a href='/users/{{i.id}}/destroy'>Delete</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    <br>
+        <p><a href='/users/new'>Add a new user</a></p>
+</body>
+</html>

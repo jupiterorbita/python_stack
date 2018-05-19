@@ -7,8 +7,8 @@ class Book(models.Model):
     desc = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    def repr(self):
-        return "<Book object: {} {} {} {}>".format(self.name, self.desc, self.created_at, self.updated_at)
+    def __repr__(self):
+        return "<book object: {} {} {} {}>".format(self.name, self.desc, self.created_at, self.updated_at)
 
 
 class Author(models.Model):
@@ -18,6 +18,41 @@ class Author(models.Model):
     notes = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    books = models.ManyToManyField(Book, related_name="authors")
-    def repr(self):
-        return "<Author object: {} {} {} {} {} {}>".format(self.first_name, self.last_name, self.email, self.notes, self.created_at, self.updated_at)
+    books = models.ManyToManyField(Book, related_name='authors')
+
+    def __repr__(self):
+        return "<author object: {} {} {} {} {} {}>".format(self.first_name, self.last_name, self.email, self.notes, self.created_at, self.updated_at)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # books = models.ManyToManyField(Book, related_name="authors")
