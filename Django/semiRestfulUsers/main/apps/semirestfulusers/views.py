@@ -39,7 +39,6 @@ def update(request):
                 print('#@$@#@#$@#$@# inside the key kanrue error')
                 messages.error(request, value)
             return redirect('/users/'+id+'/edit') # redirect the user back to the form to fix the errors
-
         else:
             u = User.objects.get(id=id)
             u.first_name = request.POST['first_name']
@@ -47,10 +46,6 @@ def update(request):
             u.email = request.POST['email']
             u.save()
             return redirect('/')
-
-
-
-
 
 
 def show(request, id):
