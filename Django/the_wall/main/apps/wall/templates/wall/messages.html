@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'loginregistration/css/main.css' %}">
+    <title>Post a message </title>
+
+
+</head>
+<body>
+    <div class="wapper">
+        <div class="header">
+            <h1 class='head'>Wall Django</h1>
+            Welcome NAME - <a href='/logout'>LOGOUT</a>
+        </div>
+    
+        <div class="main">
+            <h3>Post a message</h3>
+            <form action='/post_message' method="POST">
+                <textarea name='content'></textarea>
+                <input type="submit" value="POST MESSAGE">     
+            </form>
+
+            <table style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Courses name</th>
+                            <th>Description</th>
+                            <th>date added</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>this is a course</td>
+                            <td>this is the desanasd as das dksa a fsa fa mnfadn madm d</td>
+                            <td>May 22, 2018, 7:27 p.m.</td>
+                            <td>
+                                <a href='/courses/delete/4'>DELETE</a>
+                                <a href='/add/'
+                            </td>
+
+                        </tr>
+                        
+                    </tbody>
+    
+                </table>
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>

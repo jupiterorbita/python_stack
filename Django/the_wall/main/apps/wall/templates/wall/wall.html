@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Success!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'loginregistration/css/main.css' %}">
+    <style>
+        div.header {
+            background-color: aliceblue;
+        }
+
+        h5 {
+            display: inline-block;
+        }
+
+        textarea {
+            width: 600px;
+            display: block;
+        }
+
+        div.reply {
+            margin-left: 100px;
+            background-color: beige;
+            display: inline-block;
+        }
+
+        div.main {
+            background-color: rgb(239, 243, 242);
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wapper">
+        <div class="header">
+            <h5>Welcome {{ user.first_name }} </h5>-
+            <a href='/logout'>LOGOUT</a>
+        </div>
+        {% if messages %} {% for message in messages %}
+        <p class='green'>{{ message }}</p>
+        {% endfor %} {% endif %}
+        <hr>
+
+        <div class="main">
+            <h4>Post a message</h4>
+            <form action='/post_message' method="POST">
+                <textarea name='content'></textarea>
+                <input type="submit" value="POST MESSAGE">
+            </form>
+
+
+            <div class="messages">
+                by user....
+                <br> message .............. 
+                <a href="/delete">delete message</a> | <a href="/edit">edit msg</a>
+            </div>
+
+            <div class="reply">
+                <h5>Post a REPLY</h5>
+                <form action='/post_message' method="POST">
+                    <textarea name='content'></textarea>
+                    <input type="submit" value="POST MESSAGE">
+                </form>
+
+            this is a reply<br>
+            and this is another reply<br>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
