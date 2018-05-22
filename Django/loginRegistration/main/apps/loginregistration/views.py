@@ -12,21 +12,14 @@ def index(request):
 def registration(request):
     print('\ntouch regitration========')
     if request.method == 'POST':
-        request.session.clear()
-        # print('=-=-=-=- got post data =>', request.POST)
-        # print("*"*50)
         errors = User.objects.registration_validator(request.POST)
-        # print('erros? = ', errors)
         if len(errors):
-            for key, value in errors.items(): # if the errors object contains anything, loop through each key-value pair and make a flash message
+            for key, value in errors.items():
                 messages.error(request, value)
             return redirect('/')
         else:
-            # print('\n---------------- PASSED OK validations')
             hashed_pw = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
             User.objects.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'], email=request.POST['email'], bday=request.POST['bday'], password=hashed_pw)
-            # print('\n---------------- user should be inserted')
-            # if 'id' not in request.session:
             request.session['id'] = User.objects.get(email=request.POST['email']).id
             messages.success(request, "WELCOME FROM REGISTRATION")
             return redirect('/success')
@@ -35,12 +28,9 @@ def registration(request):
 def login(request):
     print('\ntouch LOGIN============')
     if request.method == 'POST':
-        request.session.clear()
-        print('=-=-=-=-= got post data =>', request.POST)
         errors = User.objects.login_validator(request.POST)
-        print('\n\n', errors, '\n\n')
         if len(errors):
-            for key, value in errors.items(): # if the errors object contains anything, loop through each key-value pair and make a flash message
+            for key, value in errors.items():
                 messages.error(request, value)
             return redirect('/')
         else:
@@ -51,11 +41,14 @@ def login(request):
 
 def success(request):
     print('\ntouch SUCCESS=========')
-    userDB = User.objects.get(id=request.session['id'])
-    context = {
-        'user': userDB,
-    }
-    return render(request, 'loginregistration/success.html', context)
+    if 'id' in request.session:
+        userDB = User.objects.get(id=request.session['id'])
+        context = {
+            'user': userDB,
+        }
+        return render(request, 'loginregistration/success.html', context)
+    else:
+        return redirect('/')
 
 
 def logout(request):

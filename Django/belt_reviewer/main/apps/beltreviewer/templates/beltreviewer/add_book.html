@@ -1,0 +1,69 @@
+<!-- ADD BOOK AND REVIEW add_book.html-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add a Book and Review</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'beltreviewer/css/main.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Add a Book!</h1>
+        <hr>
+        <a href='/books'>Home</a> &nbsp;&nbsp; | &nbsp;&nbsp;
+        <a href='/logout'>Logout</a>
+        <br>
+
+        <div class="add_book">
+            <!-- <h4>Add a new Book title and a Review</h4> -->
+            <hr>
+
+            {% if messages %}
+            {% for message in messages %}
+                <ul class="messages">
+                    <li>{{ message }}</li>
+                </ul>
+            {% endfor %}
+            {% endif %}
+
+
+            <form action="/add_book_method" method='POST'>
+                {% csrf_token %} 
+                Book title:
+                <input type="text" name='title'>
+                <!-- <br> <u>Author:</u> -->
+                <!-- <br> - choose from list: -->
+                <br>
+                <!-- <select name='author'>
+                    <option value="Homer">Homer</option>
+                    <option value="Plato">Plato</option>
+                    <option value="Aesop">Aesop</option>
+                </select>
+                <br> - OR - -->
+                <br> add a new Author
+                <input type='text' name='author'>
+                <br> review:
+                <textarea name='review'></textarea>
+                <br> rating:
+                <select name='rating'>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select> stars
+                <br> 
+                <input type="submit" value="Add Book and Review">
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>
